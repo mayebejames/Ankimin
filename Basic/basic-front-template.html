@@ -1,3 +1,4 @@
+
 <!-- Ankimin by William Guy — a minimal template project for Anki v0.1
 Source code and updates: https://github.com/ctrlaltwill/Ankimin
 Ankimin is a fork and enhancement of the original Prettify Project by Deshai Pranav: https://github.com/pranavdeshai/anki-prettify
@@ -10,9 +11,15 @@ Ankimin is a fork and enhancement of the original Prettify Project by Deshai Pra
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-<div class="ankimin-flashcard card light">
+<div class="ankimin-flashcard card">
   <div class="ankimin-deck">{{Deck}}</div>
-  <div class="ankimin-field ankimin-field--front">{{Front}}</div>
+  <div class="ankimin-field ankimin-field--front">
+
+<!--- ADD FRONT OF CARD HERE -->
+
+
+
+</div>
   {{#Tags}}
   <div class="ankimin-tags">{{clickable:Tags}}</div>
   {{/Tags}}
@@ -20,47 +27,38 @@ Ankimin is a fork and enhancement of the original Prettify Project by Deshai Pra
 
 
 <script>
-  // Set theme class on html element based on .card
-  (function() {
-    var card = document.querySelector('.card');
-    if (card && card.classList.contains('dark')) {
-      document.documentElement.classList.remove('light');
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    }
-  })();
-</script>
+  // Full tag hierarchy with ➤; ancestors wrapped so CSS can hide them on narrow/mobile
+  var SEP = " ▸ ";
+  var formatTag = function (tag) {
+    var parts = tag.split("::").map(function (s) { return s.trim(); }).filter(Boolean);
+    if (parts.length === 0) return "";
+    var leaf = parts.pop();
+    var path = parts.length
+      ? "<span class='ankimin-tag-path'>" + parts.join(SEP) + SEP + "</span>"
+      : "";
+    return path + leaf;
+  };
 
-<script>
-  // Split hierarchical tags
   var tagsContainerEl = document.querySelectorAll(".ankimin-tags > *");
   var tagsContainer = document.querySelector(".ankimin-tags");
-  
+
   if (tagsContainerEl.length > 0) {
-    var tags = [];
     tagsContainerEl.forEach((tagEl) => {
       tagEl.classList.add("ankimin-tag");
-      tags.push(tagEl.innerHTML);
-      tags.forEach((tag) => {
-        var childTag = tag.split("::").filter(Boolean);
-        tagEl.innerHTML = childTag[childTag.length - 1].trim();
-      });
+      tagEl.innerHTML = formatTag(tagEl.innerHTML);
     });
   } else {
     var tags = tagsContainer.innerHTML.split(" ").filter(Boolean);
     var html = "";
-    
+
     if (tags.length === 0 || (tags.length === 1 && tags[0].trim() === "")) {
       html = "<span class='ankimin-tag untagged'>Untagged</span>";
     } else {
       tags.forEach((tag) => {
-        var childTag = tag.split("::").filter(Boolean);
-        html += "<span class='ankimin-tag'>" + childTag[childTag.length - 1] + "</span>";
+        html += "<span class='ankimin-tag'>" + formatTag(tag) + "</span>";
       });
     }
-    
+
     tagsContainer.innerHTML = html;
   }
 </script>
