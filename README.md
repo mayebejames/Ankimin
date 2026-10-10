@@ -4,6 +4,8 @@
 
 This fork simplifies the templates to a standard template which can be used easily with any card type and which switches light and dark themes automatically, following the OS light or dark mode. 
 
+![Ankimin Basic Card](https://github.com/ctrlaltwill/Ankimin/blob/main/Demo%20Images/Basic-Preview-Back-Plus-Ankipedia.png)
+
 Each folder in this repository corresponds to a different card-type and contains:
 - A **Front** template (`CARDTYPE-front-template.html`)
 - A **Back** template (`CARDTYPE-back-template.html`)
