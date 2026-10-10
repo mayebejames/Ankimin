@@ -2,13 +2,7 @@
 
 **Ankimin** is a collection of **beautiful, minimal card templates** for Anki. These themes are designed to be clean, distraction-free, and elegant – allowing you to better focus while revising.
 
-There are currently three templates, for Basic, Cloze and Image Occlusion cards. They are designed with light and dark theme options, and work well with other plugins, including [Ankipedia](https://github.com/ctrlaltwill/ankipedia) and Image Occlusion Enhanced.
-
-The project plan is currently to repackage these into an Anki addon, with fully-customisable config settings and auto light/dark settings.
-
-Here is an example of a vanilla Ankimin card (with Ankipedia running concurrently):
-
-![Ankimin Basic Card](https://github.com/ctrlaltwill/Ankimin/blob/main/Demo%20Images/Basic-Preview-Back-Plus-Ankipedia.png)
+This fork simplifies the templates to a standard template which can be used easily with any card type and which switches light and dark themes automatically, following the OS light or dark mode. 
 
 Each folder in this repository corresponds to a different card-type and contains:
 - A **Front** template (`CARDTYPE-front-template.html`)
@@ -32,16 +26,16 @@ Use these to create your own themed note types in Anki.
 
 To apply a theme from this repository:
 
-1. Open the folder of your chosen theme (e.g., `Cloze`)
+1. Open the folder of your chosen theme 
 2. Open the three files:
-   - `cloze-front-template.html`
-   - `cloze-back-template.html`
-   - `cloze-template-styling.css`
+   - `basic-front-template.html`
+   - `basic-back-template.html`
+   - `basice-template-styling.css`
 3. Copy and paste:
-   - The contents of `cloze-front-template.html` → into the **Front Template** field
-   - The contents of `cloze-back-template.html` → into the **Back Template** field
-   - The contents of `cloze-template-styling.css` → into the **Styling** field
-4. Adjust the theme to light or dark (outline below)
+   - The contents of `basic-front-template.html` → into the **Front Template** field
+   - The contents of `basic-back-template.html` → into the **Back Template** field
+   - The contents of `basic-template-styling.css` → into the **Styling** field
+4. Add your front and back text and {{template}} content into the relevant areas of the template html (look for the `<!--- ADD FRONT OF CARD HERE -->` sections.
 5. Click **`Save`** in Anki
 6. Repeat for other card tips e.g. `Basic`, `Image Occlusion`
 
@@ -49,9 +43,6 @@ To apply a theme from this repository:
 
 - Preview your cards as you make changes
 - You can tweak colours, spacing, or fonts in the `style.css` file
-- To switch between light and dark mode, change the class on the main `<div>`:
-  - Light mode: `<div class="ankimin-flashcard card light">`
-  - Dark mode: `<div class="ankimin-flashcard card dark">`
 
 ## Notes
 
@@ -62,11 +53,10 @@ To apply a theme from this repository:
 
 #### Basic Card – Front ![Ankimin Basic Card](https://github.com/ctrlaltwill/Ankimin/blob/main/Demo%20Images/Basic-Preview-Front.png)
 
-#### Cloze Card – Dark Theme ![Ankimin Cloze Card](https://github.com/ctrlaltwill/Ankimin/blob/main/Demo%20Images/Cloze-Preview-Dark.png)
 
-#### Image Occlusion Card – Front ![Ankimin Basic Card](https://github.com/ctrlaltwill/Ankimin/blob/main/Demo%20Images/Occlusion-Preview-1.png)
 
 ## Acknowledgements
+This fork is very lightly amended from the original and excellent [Ankimin](https://github.com/ctrlaltwill/ankimin) design by **William Guy**. It largely reflects my own preferences but the automatic light/dark mode alterations may be sufficiently useful for others to gain some benefit. Much of the changes were made using Claude, with some tweaks done 'by hand'. 
 
 Ankimin is built upon and inspired by the excellent work of **Deshai Pranav** and his [Prettify](https://github.com/pranavdeshai/anki-prettify) framework. 
 
