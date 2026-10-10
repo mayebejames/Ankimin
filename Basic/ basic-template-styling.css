@@ -15,10 +15,10 @@ body {
 }
 
 /* When any child element has .dark class, change html/body background */
-:has(.dark) html,
-:has(.dark) body,
-html:has(.dark),
-body:has(.dark) {
+html:has(.nightMode),
+html:has(.night_mode),
+body.nightMode,
+body.night_mode {
   background-color: #181b22;
 }
 
@@ -29,8 +29,8 @@ body:has(.dark) {
   --font-size-small: 12px;
   --font-family: "DM Sans", "Proxima Nova", -apple-system, system-ui, BlinkMacSystemFont, Segoe UI,
     Roboto, Helvetica, Arial, sans-serif;
-  --img-width: 50%;
-  --img-brightness: 0.75;
+  --img-width: 100%;
+/*  --img-brightness: 0.75; */
   --img-filter: none;
   --deck-margin: 30px;
   --deck-font-size: 10px;
@@ -44,7 +44,8 @@ body:has(.dark) {
   --img-radius: 0em;
   --img-min-width: 200px;
   --img-max-width: 320px;
-  --img-margin: 0.5em 0;
+/*  --img-margin: 0.5em 0; */
+    --img-margin: auto;
   --table-radius: 0.5em;
   --img-border: 0.5px solid var(--divider);
 }
@@ -68,7 +69,7 @@ body:has(.dark) {
 /* --------------------------------------------------
    THEME: LIGHT
    -------------------------------------------------- */
-.light, .card.light {
+.card{
   --text-fg: #555;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   --text-fg-faint: #333333cc;
@@ -97,7 +98,10 @@ body:has(.dark) {
 /* --------------------------------------------------
    THEME: DARK
    -------------------------------------------------- */
-.dark, .card.dark {
+.nightMode.card,
+.night_mode.card,
+.nightMode .card,
+.night_mode .card  {
   --text-fg: #fff;
   --box-shadow: rgba(0, 0, 0, 0.35) 0px 8px 24px;
   --text-fg-faint: #fff;
@@ -171,7 +175,7 @@ html:not(.mobile) .card {
 }
 .ankimin-field--back {
   color: var(--text-fg-faint);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-regular);
 }
 
 /* --------------------------------------------------
@@ -242,6 +246,16 @@ html:not(.mobile) .card {
   cursor: pointer;
 }
 
+/* Leaf tag only on mobile clients and narrow windows */
+.mobile .ankimin-tag-path {
+  display: none;
+}
+@media (max-width: 550px) {
+  .ankimin-tag-path {
+    display: none;
+  }
+}
+
 /* --------------------------------------------------
    DIVIDERS
    -------------------------------------------------- */
@@ -260,13 +274,14 @@ html:not(.mobile) .card {
    -------------------------------------------------- */
 img {
   border-radius: var(--img-radius);
+  object-fit: cover;
   display: block;
   margin: var(--img-margin);
   width: var(--img-width);
   min-width: var(--img-min-width);
   max-width: var(--img-max-width);
   transition: 0.25s ease-in-out all;
-  border: var(--img-border);
+
 }
 .night_mode img {
   filter: var(--img-filter);
@@ -395,4 +410,8 @@ pre {
 ::selection {
   color: #fff;
   background: #0fcad4 !important;
+}
+
+.lc {
+   text-transform: lowercase;
 }
