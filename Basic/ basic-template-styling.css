@@ -27,7 +27,7 @@ body.night_mode {
   --card-text-align: left;
   --font-size-regular: 16px;
   --font-size-small: 12px;
-  --font-family: "DM Sans", "Proxima Nova", -apple-system, system-ui, BlinkMacSystemFont, Segoe UI,
+  --font-family:  -apple-system, system-ui, BlinkMacSystemFont, Segoe UI,
     Roboto, Helvetica, Arial, sans-serif;
   --img-width: 100%;
 /*  --img-brightness: 0.75; */
@@ -50,21 +50,7 @@ body.night_mode {
   --img-border: 0.5px solid var(--divider);
 }
 
-/* 
-  To use Noto Sans from Google Fonts, add the following <link> to your HTML <head>:
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-  This will load Noto Sans with regular, bold, italic, and bold italic styles.
-*/
-
-/* 
-  To use DM Sans from Google Fonts, add the following <link> to your HTML <head>:
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-  This will load DM Sans with regular and bold styles.
-*/
 
 /* --------------------------------------------------
    THEME: LIGHT
@@ -368,35 +354,6 @@ pre {
   white-space: normal;
 }
 
-/* --------------------------------------------------
-   CUSTOM FONTS
-   -------------------------------------------------- */
-/* 
-@font-face {
-  font-family: Inter;
-  src: local("Inter-Regular"), url("_Inter-Regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: normal;
-}
-@font-face {
-  font-family: Inter;
-  src: local("Inter-Bold"), url("_Inter-Bold.woff2") format("woff2");
-  font-style: normal;
-  font-weight: bold;
-}
-@font-face {
-  font-family: Inter;
-  src: local("Inter-Italic"), url("_Inter-Italic.woff2") format("woff2");
-  font-style: italic;
-  font-weight: normal;
-}
-@font-face {
-  font-family: Inter;
-  src: local("Inter-BoldItalic"), url("_Inter-BoldItalic.woff2") format("woff2");
-  font-style: italic;
-  font-weight: bold;
-}
-*/
 
 /* --------------------------------------------------
    MISCELLANEOUS
